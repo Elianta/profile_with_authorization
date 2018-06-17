@@ -1,0 +1,29 @@
+.profile {
+  margin-bottom: $m-size;
+}
+
+.profile__title {
+  padding-left: $s-size;
+  margin-bottom: $m-size;
+  font-size: $m-size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.profile__info {
+  padding: $s-size;
+  margin-bottom: $s-size;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+}
+
+.profile__info-label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.profile__list {
+  margin: 0.8rem 0 0;
+  & > li {
+    margin-bottom: 0.6rem;
+  }
+}
