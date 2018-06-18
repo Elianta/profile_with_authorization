@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import YoutubeIcon from './icons/YoutubeIcon';
+import WebIcon from './icons/WebIcon';
+import VkIcon from './icons/VkIcon';
+import TwitterIcon from './icons/TwitterIcon';
+import TwitchIcon from './icons/TwitchIcon';
+import TelegramIcon from './icons/TelegramIcon';
 
-function insertImgSrc(name) {
+function insertSvg(name) {
     const icons = {
-        telegram: '/icons/telegram.png',
-        twitch: '/icons/twitch.png',
-        twitter: '/icons/twitter.png',
-        vk: '/icons/vk.png',
-        web: '/icons/website.png',
-        youtube: '/icons/youtube.png'
+        telegram: <TelegramIcon/>,
+        twitch: <TwitchIcon/>,
+        twitter: <TwitterIcon/>,
+        vk: <VkIcon/>,
+        web: <WebIcon/>,
+        youtube: <YoutubeIcon/>
     };
     return icons[name];
 }
@@ -38,7 +44,7 @@ const Profile = ({ userInfo, errorMsg, isLoading }) => {
                         {userInfo.social.map((item) => (
                             <li key={item.label}>
                                 <a className="social__link" href={item.link} target="_blank">{item.label}
-                                    <img src={insertImgSrc(item.label)} alt={item.label} width="35px" height="auto"/>
+                                    {insertSvg(item.label)}
                                 </a>
                             </li>
                         ))}

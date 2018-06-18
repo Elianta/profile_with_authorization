@@ -12,12 +12,12 @@
 
 .social__link {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
 
-  & > img {
+  & > svg {
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 
   &:hover {
