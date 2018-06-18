@@ -4,12 +4,6 @@ export const GET_USER_INFO_SUCCESS = 'GET_USER_INFO_SUCCESS';
 export const GET_USER_INFO_ERROR = 'GET_USER_INFO_ERROR';
 export const USER_INFO_LOADING = 'USER_INFO_LOADING';
 
-const sortSocialData = ({ social }) => {
-    return social.reduce((prev, current) => {
-        return current.label === 'web' ? [current, ...prev] : prev.concat(current);
-    }, []);
-};
-
 export const getUserInfoSuccess = (response) => ({
     type: GET_USER_INFO_SUCCESS,
     payload: { userInfo: response }
@@ -42,8 +36,7 @@ export function getUserInfo() {
         .then((json) => {
             if (json.status === 'ok') {
                 dispatch(userInfoIsLoading(false));
-                const sortedData = {...json.data, social: sortSocialData(json.data)};
-                dispatch(getUserInfoSuccess(sortedData));
+                dispatch(getUserInfoSuccess(json.data));
             } else if (json.status === 'err') {
                 dispatch(getUserInfoError(json.message));
                 throw new Error(json.message);

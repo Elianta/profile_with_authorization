@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
         case GET_USER_INFO_SUCCESS:
             return {
                 ...state,
-                userInfo: { ...action.payload.userInfo },
+                userInfo: sortData(action.payload.userInfo),
                 errorMsg: ''
             };
         case GET_USER_INFO_ERROR:
@@ -34,3 +34,10 @@ export default (state = initialState, action) => {
             return state;
     }
 };
+
+function sortData(data) {
+    const sortedSocial = data.social.reduce((prev, current) => {
+        return current.label === 'web' ? [current, ...prev] : prev.concat(current);
+    }, []);
+    return {...data, social: sortedSocial};
+}
