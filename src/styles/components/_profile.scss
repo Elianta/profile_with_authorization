@@ -13,7 +13,8 @@
 .profile__info {
   padding: $s-size;
   margin-bottom: $s-size;
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 6px -6px rgba(0, 0, 0, 0.2);
 }
 
 .profile__info-label {
