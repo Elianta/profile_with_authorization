@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import Preloader from './Preloader';
 
 class Login extends React.Component {
     state = {
@@ -86,7 +87,7 @@ class Login extends React.Component {
                             return email === '' || password === '' || isLoading === true;
                         }())}
                     >
-                        {isLoading ? 'Подождите...' : 'Войти'}
+                        {isLoading ? <Preloader width="16" height="16"/> : 'Войти'}
                     </button>
                 </form>
             </div>

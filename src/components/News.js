@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Preloader from './Preloader';
 
 const News = ({ data, isLoading }) => {
     if (isLoading) {
-        return <p className="page-content">Загружаю...</p>;
+        return <div className="page-content"><Preloader/></div>;
     }
+
     return !data.length ? <p className="page-content">Новостей нет :(</p> : (
         <div className="page-content">
             <section className="news">
