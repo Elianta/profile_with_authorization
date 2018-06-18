@@ -1,8 +1,9 @@
+import { ROOT_URL } from './constants';
+
 export const GET_USER_INFO_SUCCESS = 'GET_USER_INFO_SUCCESS';
 export const GET_USER_INFO_ERROR = 'GET_USER_INFO_ERROR';
 export const USER_INFO_LOADING = 'USER_INFO_LOADING';
 
-const URL = 'https://mysterious-reef-29460.herokuapp.com/api/v1/user-info/';
 const sortSocialData = ({ social }) => {
     return social.reduce((prev, current) => {
         return current.label === 'web' ? [current, ...prev] : prev.concat(current);
@@ -28,8 +29,7 @@ export function getUserInfo() {
     return (dispatch, getState) => {
         dispatch(userInfoIsLoading(true));
         const userID = getState().session.user.name;
-        const url = URL + userID;
-        fetch(url, {
+        fetch(`${ROOT_URL}/user-info/${userID}`, {
             method: 'get'
         })
         .then(response => {

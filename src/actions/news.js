@@ -1,8 +1,8 @@
+import { ROOT_URL } from './constants';
+
 export const GET_NEWS_SUCCESS = 'GET_NEWS_SUCCESS';
 export const GET_NEWS_ERROR = 'GET_NEWS_ERROR';
 export const NEWS_IS_LOADING = 'NEWS_IS_LOADING';
-
-const URL = 'https://mysterious-reef-29460.herokuapp.com/api/v1/news';
 
 export const getNewsSuccess = (response) => ({
     type: GET_NEWS_SUCCESS,
@@ -22,7 +22,7 @@ export const newsIsLoading = (bool) => ({
 export function getNews() {
     return (dispatch) => {
         dispatch(newsIsLoading(true));
-        fetch(URL, { method: 'get' })
+        fetch(`${ROOT_URL}/news`, { method: 'get' })
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.statusText);

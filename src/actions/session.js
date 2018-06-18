@@ -1,8 +1,9 @@
+import { ROOT_URL } from './constants';
+
 export const LOG_OUT = 'LOG_OUT';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_LOADING = 'AUTH_LOADING';
-const URL = 'https://mysterious-reef-29460.herokuapp.com/api/v1/validate';
 
 export const authSuccess = (response) => ({
     type: AUTH_SUCCESS,
@@ -22,7 +23,7 @@ export const authIsLoading = (bool) => ({
 export function logIn(params, cbOnSuccess, cbOnError) {
     return (dispatch) => {
         dispatch(authIsLoading(true));
-        fetch(URL, {
+        fetch(`${ROOT_URL}/validate`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
